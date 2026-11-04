@@ -1,0 +1,26 @@
+
+name: Deployment Agent
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  agent:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - run: npm install
+
+      - run: npm install -g vercel
+
+      - name: Run deployment agent
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: node agent.js

@@ -26,27 +26,77 @@ function Reports() {
   const [editForm, setEditForm] = useState(null)
   const [isSaving, setIsSaving] = useState(false)
 
-  async function loadReports() {
+  // async function loadReports() {
+  //   try {
+  //     const savedReports = await db.reports
+  //       .orderBy('createdAt')
+  //       .reverse()
+  //       .toArray()
+
+  //     setReports(savedReports)
+  //     setError('')
+  //   } catch (err) {
+  //     console.error('Could not load reports:', err)
+  //     setError('Could not load your reports. Please try again.')
+  //   } finally {
+  //     setIsLoading(false)
+  //   }
+  // }
+async function loadReports() {
+  try {
+    const savedReports = await db.reports
+      .orderBy('createdAt')
+      .reverse()
+      .toArray()
+
+    setReports(savedReports)
+    setError('')
+  } catch (err) {
+    console.error('Could not load reports:', err)
+    setError('Could not load your reports. Please try again.')
+  } finally {
+    setIsLoading(false)
+  }
+}
+  // useEffect(() => {
+  //   loadReports()
+  // }, [])
+useEffect(() => {
+  let cancelled = false
+
+  async function fetchReports() {
     try {
       const savedReports = await db.reports
         .orderBy('createdAt')
         .reverse()
         .toArray()
 
-      setReports(savedReports)
-      setError('')
+      if (!cancelled) {
+        setReports(savedReports)
+        setError('')
+      }
     } catch (err) {
       console.error('Could not load reports:', err)
-      setError('Could not load your reports. Please try again.')
+
+      if (!cancelled) {
+        setError('Could not load your reports. Please try again.')
+      }
     } finally {
-      setIsLoading(false)
+      if (!cancelled) {
+        setIsLoading(false)
+      }
     }
   }
 
-  useEffect(() => {
-    loadReports()
-  }, [])
+  fetchReports()
 
+  return () => {
+    cancelled = true
+  }
+}, [])
+
+
+// 
   function startEditing(report) {
     setEditingId(report.id)
     setActionError('')
