@@ -134,10 +134,8 @@ function LocationCapture({ value, onChange }) {
       setError('Geolocation is not supported by this browser.')
       return
     }
-
     setIsGettingLocation(true)
     setError('')
-
     navigator.geolocation.getCurrentPosition(
       (position) => {
         onChange({

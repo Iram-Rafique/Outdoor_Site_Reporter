@@ -164,7 +164,6 @@ function CameraCapture({ value, onChange }) {
 
   const capturePhoto = useCallback(() => {
     const imageSrc = webcamRef.current?.getScreenshot()
-
     if (!imageSrc) {
       setCameraError('Unable to capture a photo. Please try again.')
       return
@@ -213,7 +212,6 @@ function CameraCapture({ value, onChange }) {
       event.target.value = ''
       return
     }
-
     if (file.size > 5 * 1024 * 1024) {
       setUploadError('Please select an image smaller than 5 MB.')
       event.target.value = ''

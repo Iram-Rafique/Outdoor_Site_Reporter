@@ -192,10 +192,10 @@ useEffect(() => {
   }
 
   return (
-    <div className="min-h-screen bg-[#F4F7F6] text-[#10231D]">
+    <div className="min-h-screen  bg-[#F4F7F6] text-[#10231D] flex flex-col">
       <Header />
 
-      <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+      <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 flex-1 ">
         <div className="mb-7 flex items-end justify-between gap-4">
           <div>
             <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
@@ -509,7 +509,7 @@ useEffect(() => {
         )}
       </main>
 
-      <Footer />
+     <Footer />
     </div>
   )
 }
