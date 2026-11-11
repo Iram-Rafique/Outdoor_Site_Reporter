@@ -120,7 +120,7 @@ function EditReport() {
 
         <Link
           to="/reports"
-          className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-[#11493E] hover:underline"
+          className="mb-6 inline-flex items-center gap-2 text-base font-semibold text-[#11493E] hover:underline"
         >
           <ArrowLeft size={17} />
           Back to My Reports
@@ -131,7 +131,7 @@ function EditReport() {
             Edit Report
           </h1>
 
-          <p className="mt-2 text-sm leading-6 text-[#5A6B66]">
+          <p className="mt-2 text-base leading-6 text-[#5A6B66]">
             Update the details, photograph and location of your report.
           </p>
         </div>
@@ -143,17 +143,17 @@ function EditReport() {
         )}
 
         {actionError && (
-          <div role="alert" className="mb-5 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+          <div role="alert" className="mb-5 rounded-xl border border-red-200 bg-red-50 p-4 text-base text-red-700">
             {actionError}
           </div>
         )}
 
         {isLoading ? (
-          <p className="py-12 text-center text-sm text-[#5A6B66]">
+          <p className="py-12 text-center text-base text-[#5A6B66]">
             Loading report...
           </p>
         ) : error ? (
-          <div role="alert" className="rounded-xl border border-red-200 bg-white p-5 text-sm text-red-700">
+          <div role="alert" className="rounded-xl border border-red-200 bg-white p-5 text-base text-red-700">
             <p>{error}</p>
 
             <Link to="/reports" className="mt-3 inline-block font-semibold underline">
@@ -166,7 +166,7 @@ function EditReport() {
     className="min-w-0 space-y-5 rounded-xl border border-[#E1E8E5] bg-white p-4 shadow-sm sm:p-7"
           >
             <div>
-              <label htmlFor="title" className="mb-1.5 block text-sm font-medium">
+              <label htmlFor="title" className="mb-1.5 block text-base font-medium">
                 Report title
               </label>
 
@@ -177,12 +177,12 @@ function EditReport() {
                 onChange={handleEditChange}
                 required
                 maxLength={120}
-                className="w-full rounded-lg border border-[#D5DFDA] px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#1F8A6A]"
+                className="w-full rounded-lg border border-[#D5DFDA] px-3 py-2.5 text-base focus:outline-none focus:ring-2 focus:ring-[#1F8A6A]"
               />
             </div>
 
             <div>
-              <label htmlFor="type" className="mb-1.5 block text-sm font-medium">
+              <label htmlFor="type" className="mb-1.5 block text-base font-medium">
                 Report type
               </label>
 
@@ -191,7 +191,7 @@ function EditReport() {
                 name="type"
                 value={editForm.type}
                 onChange={handleEditChange}
-                className="w-full rounded-lg border border-[#D5DFDA] bg-white px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#1F8A6A]"
+                className="w-full rounded-lg border border-[#D5DFDA] bg-white px-3 py-2.5 text-base focus:outline-none focus:ring-2 focus:ring-[#1F8A6A]"
               >
                 <option value="observation">Observation</option>
                 <option value="issue">Issue</option>
@@ -199,7 +199,7 @@ function EditReport() {
             </div>
 
             <div>
-              <label htmlFor="category" className="mb-1.5 block text-sm font-medium">
+              <label htmlFor="category" className="mb-1.5 block text-base font-medium">
                 Category
               </label>
 
@@ -209,12 +209,12 @@ function EditReport() {
                 value={editForm.category}
                 onChange={handleEditChange}
                 maxLength={80}
-                className="w-full rounded-lg border border-[#D5DFDA] px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#1F8A6A]"
+                className="w-full rounded-lg border border-[#D5DFDA] px-3 py-2.5 text-base focus:outline-none focus:ring-2 focus:ring-[#1F8A6A]"
               />
             </div>
 
             <div>
-              <label htmlFor="description" className="mb-1.5 block text-sm font-medium">
+              <label htmlFor="description" className="mb-1.5 block text-base font-medium">
                 Description
               </label>
 
@@ -225,7 +225,7 @@ function EditReport() {
                 onChange={handleEditChange}
                 rows={4}
                 maxLength={3000}
-                className="w-full resize-y rounded-lg border border-[#D5DFDA] px-3 py-2.5 text-sm leading-6 focus:outline-none focus:ring-2 focus:ring-[#1F8A6A]"
+                className="w-full resize-y rounded-lg border border-[#D5DFDA] px-3 py-2.5 text-base leading-6 focus:outline-none focus:ring-2 focus:ring-[#1F8A6A]"
               />
             </div>
 
@@ -257,7 +257,7 @@ function EditReport() {
               <button
                 type="submit"
                 disabled={isSaving}
-                className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-lg bg-[#11493E] px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#0D3B32] disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1F8A6A]"
+                className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-lg bg-[#11493E] px-4 py-2.5 text-base font-semibold text-white transition-colors hover:bg-[#0D3B32] disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1F8A6A]"
               >
                 <Save size={17} />
                 {isSaving ? 'Saving...' : 'Save changes'}
@@ -265,7 +265,7 @@ function EditReport() {
 
               <Link
                 to="/reports"
-                className="inline-flex min-h-11 items-center justify-center rounded-lg border border-[#D5DFDA] px-4 py-2.5 text-sm font-semibold text-[#344B43] hover:bg-[#F0F5F2]"
+                className="inline-flex min-h-11 items-center justify-center rounded-lg border border-[#D5DFDA] px-4 py-2.5 text-base font-semibold text-[#344B43] hover:bg-[#F0F5F2]"
               >
                 Cancel
               </Link>

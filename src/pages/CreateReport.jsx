@@ -95,7 +95,7 @@ function CreateReport() {
             What have you found?
           </h2>
 
-          <p className="mt-2 max-w-xl text-sm leading-6 text-[#5A6B66]">
+          <p className="mt-2 max-w-xl text-base leading-6 text-[#5A6B66]">
             Describe the issue or observation and add a photograph or
             location where useful.
           </p>
@@ -126,7 +126,7 @@ function CreateReport() {
                   <span className="block font-semibold">
                     Report an issue
                   </span>
-                  <span className="mt-0.5 block text-sm leading-5 text-[#5A6B66]">
+                  <span className="mt-0.5 block text-base leading-5 text-[#5A6B66]">
                     Damage, waste or maintenance problems.
                   </span>
                 </span>
@@ -149,7 +149,7 @@ function CreateReport() {
                   <span className="block font-semibold">
                     Record an observation
                   </span>
-                  <span className="mt-0.5 block text-sm leading-5 text-[#5A6B66]">
+                  <span className="mt-0.5 block text-base leading-5 text-[#5A6B66]">
                     Wildlife, plants or environmental changes.
                   </span>
                 </span>
@@ -171,7 +171,7 @@ function CreateReport() {
               value={category}
               onChange={(event) => setCategory(event.target.value)}
               required
-              className={`min-h-12 w-full rounded-xl border border-[#D5DFDA] bg-white px-4 py-3 text-sm text-[#10231D] outline-none focus:border-[#1F8A6A] ${focusRing}`}
+              className={`min-h-12 w-full rounded-xl border border-[#D5DFDA] bg-white px-4 py-3 text-base text-[#10231D] outline-none focus:border-[#1F8A6A] ${focusRing}`}
             >
               <option value="">Select a category</option>
 
@@ -204,7 +204,7 @@ function CreateReport() {
               }
               maxLength={100}
               required
-              className={`min-h-12 w-full rounded-xl border border-[#D5DFDA] bg-white px-4 py-3 text-sm outline-none placeholder:text-[#8A9992] focus:border-[#1F8A6A] ${focusRing}`}
+              className={`min-h-12 w-full rounded-xl border border-[#D5DFDA] bg-white px-4 py-3 text-base outline-none placeholder:text-[#8A9992] focus:border-[#1F8A6A] ${focusRing}`}
             />
           </section>
 
@@ -225,7 +225,7 @@ function CreateReport() {
               rows={4}
               maxLength={1000}
               required
-              className={`w-full resize-y rounded-xl border border-[#D5DFDA] bg-white px-4 py-3 text-sm leading-6 outline-none placeholder:text-[#8A9992] focus:border-[#1F8A6A] ${focusRing}`}
+              className={`w-full resize-y rounded-xl border border-[#D5DFDA] bg-white px-4 py-3 text-base leading-6 outline-none placeholder:text-[#8A9992] focus:border-[#1F8A6A] ${focusRing}`}
             />
 
             <p className="mt-1 text-right text-xs text-[#5A6B66]">
@@ -254,7 +254,7 @@ function CreateReport() {
               className="rounded-xl border border-green-200 bg-green-50 p-4 text-green-700"
             >
               <p className="font-semibold">✓ {successMessage}</p>
-              <p className="mt-1 text-sm">
+              <p className="mt-1 text-base">
                 Your report has been saved successfully.
               </p>
             </div>

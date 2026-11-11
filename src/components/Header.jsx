@@ -14,7 +14,7 @@ function Header() {
 
   const linkClasses = ({ isActive }) =>
     [
-      'flex items-center rounded-lg px-3 py-2.5 text-sm font-medium',
+      'flex items-center rounded-lg px-3 py-2.5 text-base font-medium',
       'transition-colors duration-150',
       'focus-visible:outline-none focus-visible:ring-2',
       'focus-visible:ring-[#1F8A6A] focus-visible:ring-offset-2',

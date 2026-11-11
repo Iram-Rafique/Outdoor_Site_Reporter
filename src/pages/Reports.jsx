@@ -88,14 +88,14 @@ function Reports() {
               My Reports
             </h1>
 
-            <p className="mt-2 max-w-xl text-sm leading-6 text-[#5A6B66]">
+            <p className="mt-2 max-w-xl text-base leading-6 text-[#5A6B66]">
               View and manage your recorded outdoor issues and observations.
             </p>
           </div>
 
           <Link
             to="/create"
-            className="shrink-0 rounded-lg bg-[#11493E] px-3 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#0D3B32] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1F8A6A] focus-visible:ring-offset-2 sm:px-4"
+            className="shrink-0 rounded-lg bg-[#11493E] px-3 py-2.5 text-base font-semibold text-white transition-colors hover:bg-[#0D3B32] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1F8A6A] focus-visible:ring-offset-2 sm:px-4"
           >
             <span className="sm:hidden">+ New</span>
             <span className="hidden sm:inline">+ New report</span>
@@ -128,14 +128,14 @@ function Reports() {
 
         {/* Loading state */}
         {isLoading ? (
-          <p className="py-12 text-center text-sm text-[#5A6B66]">
+          <p className="py-12 text-center text-base text-[#5A6B66]">
             Loading reports...
           </p>
         ) : error ? (
           /* Loading error */
           <div
             role="alert"
-            className="rounded-xl border border-[#E1E8E5] bg-white p-5 text-sm text-red-700"
+            className="rounded-xl border border-[#E1E8E5] bg-white p-5 text-base text-red-700"
           >
             {error}
 
@@ -159,13 +159,13 @@ function Reports() {
               No reports yet
             </h2>
 
-            <p className="mt-2 text-sm text-[#5A6B66]">
+            <p className="mt-2 text-base text-[#5A6B66]">
               Create your first report to see it here.
             </p>
 
             <Link
               to="/create"
-              className="mt-5 inline-flex rounded-lg bg-[#11493E] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#0D3B32]"
+              className="mt-5 inline-flex rounded-lg bg-[#11493E] px-4 py-2.5 text-base font-semibold text-white hover:bg-[#0D3B32]"
             >
               Create your first report
             </Link>
@@ -173,7 +173,7 @@ function Reports() {
         ) : (
           /* Reports list */
           <>
-            <p className="mb-4 text-sm text-[#5A6B66]">
+            <p className="mb-4 text-base text-[#5A6B66]">
               <span className="font-semibold text-[#10231D]">
                 {reports.length}
               </span>{' '}
@@ -227,13 +227,13 @@ function Reports() {
                       {report.title || 'Untitled report'}
                     </h2>
 
-                    <p className="mt-1 break-words text-sm text-[#5A6B66]">
+                    <p className="mt-1 break-words text-base text-[#5A6B66]">
                       {report.category || 'Uncategorised'}
                     </p>
 
                     {/* Description */}
                     {report.description && (
-                      <p className="mt-3 whitespace-pre-wrap break-words text-sm leading-6 text-[#344B43]">
+                      <p className="mt-3 whitespace-pre-wrap break-words text-base leading-6 text-[#344B43]">
                         {report.description}
                       </p>
                     )}
@@ -264,7 +264,7 @@ function Reports() {
                     <div className="mt-4 flex gap-2 border-t border-[#E8EFEC] pt-3">
                       <Link
                         to={`/reports/${report.id}/edit`}
-                        className="inline-flex min-h-10 flex-1 items-center justify-center gap-2 rounded-lg border border-[#D5DFDA] px-3 py-2 text-sm font-semibold text-[#11493E] transition-colors hover:bg-[#F0F5F2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1F8A6A]"
+                        className="inline-flex min-h-10 flex-1 items-center justify-center gap-2 rounded-lg border border-[#D5DFDA] px-3 py-2 text-base font-semibold text-[#11493E] transition-colors hover:bg-[#F0F5F2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1F8A6A]"
                       >
                         <Pencil size={15} />
                         Edit
@@ -277,7 +277,7 @@ function Reports() {
                           setErrorMessage('')
                           setReportToDelete(report)
                         }}
-                        className="inline-flex min-h-10 flex-1 items-center justify-center gap-2 rounded-lg border border-red-200 px-3 py-2 text-sm font-semibold text-red-700 transition-colors hover:bg-red-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400"
+                        className="inline-flex min-h-10 flex-1 items-center justify-center gap-2 rounded-lg border border-red-200 px-3 py-2 text-base font-semibold text-red-700 transition-colors hover:bg-red-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400"
                       >
                         <Trash2 size={15} />
                         Delete
@@ -314,7 +314,7 @@ function Reports() {
               </h2>
             </div>
 
-           <p className="mb-6 break-words text-sm leading-6 text-[#5A6B66]">
+           <p className="mb-6 break-words text-base leading-6 text-[#5A6B66]">
   Are you sure you want to delete "{reportToDelete.title || 'this report'}"?
   This action cannot be undone.
 </p>
@@ -324,7 +324,7 @@ function Reports() {
                 type="button"
                 disabled={isDeleting}
                 onClick={() => setReportToDelete(null)}
-                className="rounded-lg border border-[#D5DFDA] px-4 py-2.5 text-sm font-semibold text-[#344B43] hover:bg-[#F0F5F2] disabled:opacity-60"
+                className="rounded-lg border border-[#D5DFDA] px-4 py-2.5 text-base font-semibold text-[#344B43] hover:bg-[#F0F5F2] disabled:opacity-60"
               >
                 Cancel
               </button>
@@ -333,7 +333,7 @@ function Reports() {
                 type="button"
                 disabled={isDeleting}
                 onClick={deleteReport}
-                className="rounded-lg bg-red-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-red-700 disabled:cursor-not-allowed disabled:opacity-60"
+                className="rounded-lg bg-red-600 px-4 py-2.5 text-base font-semibold text-white hover:bg-red-700 disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {isDeleting ? 'Deleting...' : 'Delete'}
               </button>

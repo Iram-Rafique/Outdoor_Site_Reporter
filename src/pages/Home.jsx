@@ -91,7 +91,7 @@ function Home() {
           <h1 className="max-w-md text-[1.625rem] font-semibold leading-8 tracking-tight text-white sm:text-3xl sm:leading-9">
             What would you like to report?
           </h1>
-          <p className="mt-2 max-w-md text-sm leading-6 text-[#BFD8CF] sm:text-base sm:leading-7">
+          <p className="mt-2 max-w-md text-base leading-6 text-[#BFD8CF] sm:text-base sm:leading-7">
             Choose a report type to get started. You can add photographs and
             your location to any report.
           </p>
@@ -121,14 +121,14 @@ function Home() {
                 <span className="block text-base font-semibold tracking-tight">
                   {title}
                 </span>
-                <span className="mt-0.5 block text-sm leading-5 text-[#5A6B66]">
+                <span className="mt-0.5 block text-base leading-5 text-[#5A6B66]">
                   {text}
                 </span>
               </span>
 
               <ChevronRight size={18} className="shrink-0 text-[#8FA09A] sm:hidden" />
 
-              <span className="mt-4 hidden items-center gap-1 text-sm font-semibold text-[#11493E] sm:inline-flex">
+              <span className="mt-4 hidden items-center gap-1 text-base font-semibold text-[#11493E] sm:inline-flex">
                 Start a report
                 <ChevronRight
                   size={16}
@@ -150,7 +150,7 @@ function Home() {
           </span>
           <span className="min-w-0 flex-1">
             <span className="block text-[15px] font-semibold">My reports</span>
-            <span className="block text-sm leading-5 text-[#5A6B66]">
+            <span className="block text-base leading-5 text-[#5A6B66]">
               View, edit or delete reports saved on this device.
             </span>
           </span>
@@ -176,11 +176,11 @@ function Home() {
                   {i + 1}
                 </span>
                 <div>
-                  <p className="flex items-center gap-2 text-sm font-semibold">
+                  <p className="flex items-center gap-2 text-base font-semibold">
                     {title}
                     <Icon size={14} className="text-[#8FA09A]" />
                   </p>
-                  <p className="mt-0.5 text-sm leading-5 text-[#5A6B66]">{text}</p>
+                  <p className="mt-0.5 text-base leading-5 text-[#5A6B66]">{text}</p>
                 </div>
               </li>
             ))}
