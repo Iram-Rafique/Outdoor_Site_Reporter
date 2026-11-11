@@ -89,167 +89,145 @@ function CameraCapture({ value, onChange }) {
     event.target.value = ''
   }
 
-  return (
-    <section>
-      <h3 className="mb-2 text-[15px] font-semibold">
-        5. Photograph
-      </h3>
+ 
+return (
+  <section className="min-w-0">
+    <h3 className="mb-2 text-[15px] font-semibold">
+      5. Photograph
+    </h3>
 
-      <div className="rounded-xl border border-[#E1E8E5] bg-white p-3 sm:p-4">
-        {value && !showCamera && (
-          <div>
-            <img
-              src={value}
-              alt="Photograph attached to report"
-              className="max-h-64 w-full rounded-lg bg-[#F4F7F6] object-contain"
+    <div className="w-full min-w-0 overflow-hidden rounded-xl border border-[#E1E8E5] bg-white p-3 sm:p-4">
+
+      {/* Display attached photograph */}
+      {value && !showCamera && (
+        <div className="min-w-0">
+          <img
+            src={value}
+            alt="Photograph attached to report"
+            className="max-h-64 w-full rounded-lg bg-[#F4F7F6] object-contain"
+          />
+
+          <div className="mt-3 flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={retakePhoto}
+              className={`inline-flex min-h-10 items-center gap-2 rounded-lg border border-[#D5DFDA] px-3 py-2 text-sm font-semibold text-[#11493E] hover:bg-[#F0F5F2] ${focusRing}`}
+            >
+              <Camera size={16} />
+              Take new photo
+            </button>
+
+            <button
+              type="button"
+              onClick={removePhoto}
+              className={`inline-flex min-h-10 items-center gap-2 rounded-lg border border-[#D5DFDA] px-3 py-2 text-sm font-semibold text-[#344B43] hover:bg-[#F0F5F2] ${focusRing}`}
+            >
+              <Trash2 size={16} />
+              Remove
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Camera preview */}
+      {showCamera && (
+        <div className="min-w-0">
+          <div className="w-full min-w-0 overflow-hidden rounded-lg bg-black">
+            <Webcam
+              ref={webcamRef}
+              audio={false}
+              screenshotFormat="image/jpeg"
+              videoConstraints={{
+                facingMode: 'environment',
+              }}
+              className="block h-auto w-full max-w-full object-contain"
+              onUserMediaError={(error) => {
+                console.error('Camera error:', error)
+
+                setCameraError(
+                  error?.name === 'NotAllowedError'
+                    ? 'Camera permission was denied. Allow camera access in your browser settings.'
+                    : error?.name === 'NotFoundError'
+                      ? 'No camera was found on this device.'
+                      : error?.name === 'NotReadableError'
+                        ? 'The camera may be in use by another application.'
+                        : 'The camera could not start. Please check your permissions.'
+                )
+
+                setShowCamera(false)
+              }}
             />
-
-            <div className="mt-3 flex flex-wrap gap-2">
-              <button
-                type="button"
-                onClick={retakePhoto}
-                className={`inline-flex min-h-10 items-center gap-2 rounded-lg border border-[#D5DFDA] px-3 py-2 text-sm font-semibold text-[#11493E] hover:bg-[#F0F5F2] ${focusRing}`}
-              >
-                <Camera size={16} />
-                Take new photo
-              </button>
-
-              <button
-                type="button"
-                onClick={removePhoto}
-                className={`inline-flex min-h-10 items-center gap-2 rounded-lg border border-[#D5DFDA] px-3 py-2 text-sm font-semibold text-[#344B43] hover:bg-[#F0F5F2] ${focusRing}`}
-              >
-                <Trash2 size={16} />
-                Remove
-              </button>
-            </div>
           </div>
-        )}
 
-        {showCamera && (
-         
-<div className="w-full min-w-0 overflow-hidden rounded-lg bg-black">
-  <Webcam
-    ref={webcamRef}
-    audio={false}
-    screenshotFormat="image/jpeg"
-    videoConstraints={{
-      facingMode: 'environment',
-    }}
-    className="block h-auto w-full max-w-full object-contain"
-    onUserMediaError={(error) => {
-      console.error('Camera error:', error)
+          <div className="mt-3 flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={capturePhoto}
+              className={`inline-flex min-h-10 items-center gap-2 rounded-lg bg-[#11493E] px-3 py-2 text-sm font-semibold text-white hover:bg-[#0C3A31] ${focusRing}`}
+            >
+              <Camera size={16} />
+              Capture photo
+            </button>
 
-      setCameraError(
-        error?.name === 'NotAllowedError'
-          ? 'Camera permission was denied. Allow camera access in your browser settings.'
-          : error?.name === 'NotFoundError'
-            ? 'No camera was found on this device.'
-            : error?.name === 'NotReadableError'
-              ? 'The camera may be in use by another application.'
-              : 'The camera could not start. Please check your permissions.'
-      )
-
-      setShowCamera(false)
-    }}
-  />
-
-<div className="w-full min-w-0 overflow-hidden rounded-lg bg-black">
-  <Webcam
-    ref={webcamRef}
-    audio={false}
-    screenshotFormat="image/jpeg"
-    videoConstraints={{
-      facingMode: 'environment',
-    }}
-    className="block h-auto w-full max-w-full object-contain"
-    onUserMediaError={(error) => {
-      console.error('Camera error:', error)
-
-      setCameraError(
-        error?.name === 'NotAllowedError'
-          ? 'Camera permission was denied. Allow camera access in your browser settings.'
-          : error?.name === 'NotFoundError'
-            ? 'No camera was found on this device.'
-            : error?.name === 'NotReadableError'
-              ? 'The camera may be in use by another application.'
-              : 'The camera could not start. Please check your permissions.'
-      )
-
-      setShowCamera(false)
-    }}
-  />
-</div>
-
-
-            <div className="mt-3 flex flex-wrap gap-2">
-              <button
-                type="button"
-                onClick={capturePhoto}
-                className={`inline-flex min-h-10 items-center gap-2 rounded-lg bg-[#11493E] px-3 py-2 text-sm font-semibold text-white hover:bg-[#0C3A31] ${focusRing}`}
-              >
-                <Camera size={16} />
-                Capture photo
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setShowCamera(false)}
-                className={`min-h-10 rounded-lg border border-[#D5DFDA] px-3 py-2 text-sm font-semibold ${focusRing}`}
-              >
-                Cancel
-              </button>
-            </div>
+            <button
+              type="button"
+              onClick={() => setShowCamera(false)}
+              className={`min-h-10 rounded-lg border border-[#D5DFDA] px-3 py-2 text-sm font-semibold ${focusRing}`}
+            >
+              Cancel
+            </button>
           </div>
-        )}
+        </div>
+      )}
 
-        {!showCamera && (
-          <div className={value ? 'mt-3 border-t border-[#E8EFEC] pt-3' : ''}>
-            <p className="mb-3 text-sm leading-5 text-[#5A6B66]">
-              {value
-                ? 'Replace the existing photograph using your camera or device.'
-                : 'Add a photograph using your camera or choose an existing image.'}
-            </p>
-
-            <div className="flex flex-wrap gap-2">
-              <button
-                type="button"
-                onClick={openCamera}
-                className={`inline-flex min-h-10 items-center gap-2 rounded-lg bg-[#11493E] px-3 py-2 text-sm font-semibold text-white hover:bg-[#0C3A31] ${focusRing}`}
-              >
-                <Camera size={16} />
-                Open camera
-              </button>
-
-              <button
-                type="button"
-                onClick={() => fileInputRef.current?.click()}
-                className={`inline-flex min-h-10 items-center gap-2 rounded-lg border border-[#D5DFDA] px-3 py-2 text-sm font-semibold text-[#11493E] hover:bg-[#F0F5F2] ${focusRing}`}
-              >
-                <Upload size={16} />
-                Upload from device
-              </button>
-
-              <input
-                ref={fileInputRef}
-                type="file"
-                accept="image/*"
-                onChange={handleFileUpload}
-                className="sr-only"
-                aria-label="Choose an image from your device"
-              />
-            </div>
-          </div>
-        )}
-
-        {(cameraError || uploadError) && (
-          <p role="alert" className="mt-3 text-sm leading-5 text-red-700">
-            {cameraError || uploadError}
+      {/* Camera and upload options */}
+      {!showCamera && !value && (
+        <div>
+          <p className="mb-3 text-sm leading-5 text-[#5A6B66]">
+            Add a photograph using your camera or choose an existing image.
           </p>
-        )}
-      </div>
-    </section>
-  )
+
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={openCamera}
+              className={`inline-flex min-h-10 items-center gap-2 rounded-lg bg-[#11493E] px-3 py-2 text-sm font-semibold text-white hover:bg-[#0C3A31] ${focusRing}`}
+            >
+              <Camera size={16} />
+              Open camera
+            </button>
+
+            <button
+              type="button"
+              onClick={() => fileInputRef.current?.click()}
+              className={`inline-flex min-h-10 items-center gap-2 rounded-lg border border-[#D5DFDA] px-3 py-2 text-sm font-semibold text-[#11493E] hover:bg-[#F0F5F2] ${focusRing}`}
+            >
+              <Upload size={16} />
+              Upload from device
+            </button>
+
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              onChange={handleFileUpload}
+              className="sr-only"
+              aria-label="Choose an image from your device"
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Error messages */}
+      {(cameraError || uploadError) && (
+        <p role="alert" className="mt-3 text-sm leading-5 text-red-700">
+          {cameraError || uploadError}
+        </p>
+      )}
+    </div>
+  </section>
+)
+
 }
 
 export default CameraCapture
