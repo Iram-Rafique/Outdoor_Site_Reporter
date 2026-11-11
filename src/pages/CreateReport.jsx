@@ -44,6 +44,8 @@ function CreateReport() {
   const [photo, setPhoto] = useState(null)
   const [locationData, setLocationData] = useState(null)
   const [isSaving, setIsSaving] = useState(false)
+  const [successMessage, setSuccessMessage] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
 
   const isIssue = reportType === 'issue'
 
@@ -70,16 +72,19 @@ function CreateReport() {
         createdAt: new Date().toISOString(),
       })
 
-      alert('Report saved successfully!')
-      navigate('/reports')
+      setSuccessMessage('Report saved successfully!')
+      setErrorMessage('')
+
     } catch (error) {
       console.error('Error saving report:', error)
-      alert('Could not save your report. Please try again.')
+
+      setErrorMessage('Could not save your report. Please try again.')
+      setSuccessMessage('')
+
     } finally {
       setIsSaving(false)
     }
   }
-
   return (
     <div className="min-h-screen bg-[#F4F7F6] text-[15px] leading-6 text-[#10231D] antialiased">
       <Header />
@@ -108,11 +113,10 @@ function CreateReport() {
                 type="button"
                 onClick={() => handleTypeChange('issue')}
                 aria-pressed={isIssue}
-                className={`flex min-h-[76px] items-center gap-4 rounded-xl border p-4 text-left transition ${
-                  isIssue
-                    ? 'border-[#11493E] bg-[#E8F1ED] ring-1 ring-[#11493E]'
-                    : 'border-[#E1E8E5] bg-white hover:border-[#9BAFA5]'
-                } ${focusRing}`}
+                className={`flex min-h-[76px] items-center gap-4 rounded-xl border p-4 text-left transition ${isIssue
+                  ? 'border-[#11493E] bg-[#E8F1ED] ring-1 ring-[#11493E]'
+                  : 'border-[#E1E8E5] bg-white hover:border-[#9BAFA5]'
+                  } ${focusRing}`}
               >
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#FEF1DC] text-[#B45309]">
                   <TriangleAlert size={21} strokeWidth={1.8} />
@@ -132,11 +136,10 @@ function CreateReport() {
                 type="button"
                 onClick={() => handleTypeChange('observation')}
                 aria-pressed={!isIssue}
-                className={`flex min-h-[76px] items-center gap-4 rounded-xl border p-4 text-left transition ${
-                  !isIssue
-                    ? 'border-[#11493E] bg-[#E8F1ED] ring-1 ring-[#11493E]'
-                    : 'border-[#E1E8E5] bg-white hover:border-[#9BAFA5]'
-                } ${focusRing}`}
+                className={`flex min-h-[76px] items-center gap-4 rounded-xl border p-4 text-left transition ${!isIssue
+                  ? 'border-[#11493E] bg-[#E8F1ED] ring-1 ring-[#11493E]'
+                  : 'border-[#E1E8E5] bg-white hover:border-[#9BAFA5]'
+                  } ${focusRing}`}
               >
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#E3F4EA] text-[#177245]">
                   <Leaf size={21} strokeWidth={1.8} />
@@ -243,6 +246,31 @@ function CreateReport() {
           />
 
           {/* Form actions */}
+
+          {/* Success message */}
+          {successMessage && (
+            <div
+              role="status"
+              className="rounded-xl border border-green-200 bg-green-50 p-4 text-green-700"
+            >
+              <p className="font-semibold">✓ {successMessage}</p>
+              <p className="mt-1 text-sm">
+                Your report has been saved successfully.
+              </p>
+            </div>
+          )}
+
+          {/* Error message */}
+          {errorMessage && (
+            <div
+              role="alert"
+              className="rounded-xl border border-red-200 bg-red-50 p-4 text-red-700"
+            >
+              <p className="font-semibold">✕ {errorMessage}</p>
+            </div>
+          )}
+
+          {/* Form actions */}
           <div className="flex flex-col-reverse gap-3 border-t border-[#D5DFDA] pt-5 sm:flex-row sm:justify-end">
             <button
               type="button"
@@ -260,6 +288,8 @@ function CreateReport() {
               {isSaving ? 'Saving report...' : 'Save report'}
             </button>
           </div>
+
+
         </form>
       </main>
 
