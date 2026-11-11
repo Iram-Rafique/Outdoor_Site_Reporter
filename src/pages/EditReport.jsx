@@ -116,7 +116,7 @@ function EditReport() {
     <div className="flex min-h-screen flex-col bg-[#F4F7F6] text-[#10231D]">
       <Header />
 
-      <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+      <main className="mx-auto w-full min-w-0 max-w-3xl flex-1 px-4 py-6 sm:px-6 sm:py-10 lg:px-8">
 
         <Link
           to="/reports"
@@ -163,7 +163,7 @@ function EditReport() {
         ) : editForm ? (
           <form
             onSubmit={saveChanges}
-            className="space-y-5 rounded-xl border border-[#E1E8E5] bg-white p-5 shadow-sm sm:p-7"
+    className="min-w-0 space-y-5 rounded-xl border border-[#E1E8E5] bg-white p-4 shadow-sm sm:p-7"
           >
             <div>
               <label htmlFor="title" className="mb-1.5 block text-sm font-medium">
@@ -253,7 +253,7 @@ function EditReport() {
               />
             </div>
 
-            <div className="flex flex-col gap-3 border-t border-[#E8EFEC] pt-5 sm:flex-row">
+          <div className="flex flex-col gap-3 border-t border-[#E8EFEC] pt-5 sm:flex-row sm:justify-end">
               <button
                 type="submit"
                 disabled={isSaving}

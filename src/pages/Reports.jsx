@@ -79,10 +79,10 @@ function Reports() {
     <div className="flex min-h-screen flex-col bg-[#F4F7F6] text-[#10231D]">
       <Header />
 
-      <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+      <main className="mx-auto w-full min-w-0 max-w-6xl flex-1 px-4 py-6 sm:px-6 sm:py-10 lg:px-8">
 
         {/* Page heading */}
-        <div className="mb-7 flex items-end justify-between gap-4">
+        <div className="mb-7 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
               My Reports
@@ -201,8 +201,7 @@ function Reports() {
                       />
                     </div>
                   )}
-
-                  <div className="p-4 sm:p-5">
+                  <div className="min-w-0 p-4 sm:p-5">
 
                     {/* Report type */}
                     <div className="mb-2 flex items-center gap-2">
@@ -228,8 +227,7 @@ function Reports() {
                       {report.title || 'Untitled report'}
                     </h2>
 
-                    {/* Category */}
-                    <p className="mt-1 text-sm text-[#5A6B66]">
+                    <p className="mt-1 break-words text-sm text-[#5A6B66]">
                       {report.category || 'Uncategorised'}
                     </p>
 
@@ -303,7 +301,7 @@ function Reports() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="delete-dialog-title"
-            className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl"
+            className="max-h-[90dvh] w-full max-w-md overflow-y-auto rounded-2xl bg-white p-4 shadow-xl sm:p-6"
           >
             <div className="mb-4 flex items-center gap-3">
               <Trash2 className="text-red-600" size={22} />
@@ -316,10 +314,10 @@ function Reports() {
               </h2>
             </div>
 
-            <p className="mb-6 text-sm leading-6 text-[#5A6B66]">
-              Are you sure you want to delete "{reportToDelete.title || 'this report'}"?
-              This action cannot be undone.
-            </p>
+           <p className="mb-6 break-words text-sm leading-6 text-[#5A6B66]">
+  Are you sure you want to delete "{reportToDelete.title || 'this report'}"?
+  This action cannot be undone.
+</p>
 
             <div className="flex justify-end gap-3">
               <button
