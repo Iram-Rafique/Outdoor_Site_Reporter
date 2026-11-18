@@ -23,6 +23,7 @@ function EditReport() {
     let cancelled = false
 
     async function loadReport() {
+      //get based on id 
       try {
         const report = await db.reports.get(Number(id))
 
@@ -83,7 +84,7 @@ function EditReport() {
     setActionError('')
     setSuccessMessage('')
     setIsSaving(true)
-
+// updade
     try {
       const updated = await db.reports.update(Number(id), {
         title: editForm.title.trim(),

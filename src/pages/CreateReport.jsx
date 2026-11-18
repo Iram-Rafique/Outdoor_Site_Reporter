@@ -37,7 +37,7 @@ function CreateReport() {
   const [reportType, setReportType] = useState(
     location.state?.type === 'observation' ? 'observation' : 'issue',
   )
-
+// React state variables
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [category, setCategory] = useState('')

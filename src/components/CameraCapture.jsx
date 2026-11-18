@@ -1,4 +1,5 @@
 import { useCallback, useRef, useState } from 'react'
+//webcam
 import Webcam from 'react-webcam'
 import { Camera, Upload, Trash2 } from 'lucide-react'
 
@@ -6,6 +7,7 @@ const focusRing =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1F8A6A] focus-visible:ring-offset-2'
 
 function CameraCapture({ value, onChange }) {
+  // /The useRef hook connects to the webcam component
   const webcamRef = useRef(null)
   const fileInputRef = useRef(null)
 
@@ -133,6 +135,7 @@ return (
       {showCamera && (
         <div className="min-w-0">
           <div className="w-full min-w-0 overflow-hidden rounded-lg bg-black">
+         // react-webcam library to access the device camera.
             <Webcam
               ref={webcamRef}
               audio={false}

@@ -10,7 +10,7 @@ import {
 } from 'lucide-react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-
+//report type array
 const reportTypes = [
   {
     type: 'issue',
@@ -108,6 +108,7 @@ function Home() {
             <button
               key={type}
               type="button"
+              //navigation to create
               onClick={() => navigate('/create', { state: { type } })}
               className={`group flex min-h-[72px] min-w-0 items-center gap-4 p-4 text-left shadow-[0_1px_2px_rgba(16,35,29,0.04),0_6px_20px_rgba(16,35,29,0.07)] sm:flex-col sm:items-start sm:gap-0 sm:p-5 ${card} ${focusRing}`}
             >
@@ -142,6 +143,7 @@ function Home() {
         {/* Saved reports */}
         <button
           type="button"
+          //navigation
           onClick={() => navigate('/reports')}
           className={`group mt-3 flex min-h-[64px] w-full min-w-0 items-center gap-4 p-4 text-left sm:mt-4 ${card} ${focusRing}`}
         >
