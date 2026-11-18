@@ -152,8 +152,5 @@ GitHub Repository
 
 The complete source code for Outdoor Reporter is available on GitHub:
 
-<<<<<<< HEAD
 GitHub Repository: https://github.com/Iram-Rafique/Outdoor_Site_Reporter
-=======
-GitHub Repository: https://github.com/Iram-Rafique/Outdoor_Site_Reporter
->>>>>>> 410e3e4 (Update ReadMe File)
+
