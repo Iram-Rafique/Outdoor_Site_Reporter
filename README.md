@@ -1,6 +1,6 @@
 # Outdoor Reporter
 
-**Live Application:** https://outdoor-site-reporting.vercel.app/
+**Live Application:** [https://outdoor-site-reporting.vercel.app/](https://outdoor-site-reporting.vercel.app/)
 
 Outdoor Reporter is a mobile-friendly Progressive Web Application (PWA) developed using React and Vite. It allows users to report outdoor issues and record environmental observations by providing descriptions, photographs and geographical locations.
 
@@ -112,13 +112,13 @@ If camera permission is denied, the application cannot access the device camera.
 
 Reports are stored locally in the browser's IndexedDB database using Dexie.js.
 
-The database is named `OutdoorReporterDB` and contains a `reports` table.
+The database is named OutdoorReporterDB and contains a reports table.
 
 Saved reports remain available in the same browser unless the relevant site data is cleared.
 
 ### Progressive Web Application (PWA)
 
-The application is configured as a PWA using `vite-plugin-pwa`.
+The application is configured as a PWA using vite-plugin-pwa.
 
 It includes:
 
@@ -135,8 +135,8 @@ On supported browsers, users can install Outdoor Reporter using the browser's in
 2. Select the browser's **Install App** option, if available.
 3. Follow the browser instructions to install Outdoor Reporter.
 4. Open the installed application from your device.
-   
-### Agentic Deployment
+
+## Agentic Deployment
 
 Outdoor Reporter uses a Node.js deployment agent to automate the application deployment process. The agent is triggered through GitHub Actions whenever new code is pushed to the GitHub repository.The deployment agent also includes a test-checking step. As no automated test suite is currently configured, this step is skipped, and the agent continues with the code quality checks and remaining deployment stages.
 
@@ -152,7 +152,7 @@ The deployment process includes the following steps:
 
 **Deployment Workflow:**
 
-`GitHub Push → GitHub Actions → Node.js Agent → Code Checks → Build → PWA Checks → Vercel Deployment → Health Check`
+GitHub Push → GitHub Actions → Node.js Agent → Code Checks → Build → PWA Checks → Vercel Deployment → Health Check
 
 The deployment agent also includes a limit of one rollback attempt to prevent repeated rollback operations.
 
@@ -160,4 +160,4 @@ The deployment agent also includes a limit of one rollback attempt to prevent re
 
 The complete source code for Outdoor Reporter is available on GitHub:
 
-**GitHub Repository:** https://github.com/Iram-Rafique/Outdoor_Site_Reporter
+**GitHub Repository:** [https://github.com/Iram-Rafique/Outdoor_Site_Reporter](https://github.com/Iram-Rafique/Outdoor_Site_Reporter)
